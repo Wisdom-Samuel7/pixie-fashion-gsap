@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowurCraft Site</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&display=swap"
+        rel="stylesheet">
+
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+
+    body {
+        background: lightcoral;
+        min-width: 100vw;
+        position: relative;
+    }
+
+    a {
+        color: #234;
+    }
+
+    .overlay {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 2000;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .swipe {
+        background: rgba(0, 0, 0, .5);
+        flex: 1;
+        height: 100%;
+    }
+
+    .counter {
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+        font-size: xxx-large;
+        font-family: "Black Ops One", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        color: #fff;
+    }
+
+    .hero {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        overflow-x: scroll;
+        align-items: center;
+    }
+
+    .image {
+        width: 100vw;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-blend-mode: darken;
+        object-fit: cover;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .a {
+        background: rgba(0, 0, 0, .6) url('https://img.freepik.com/free-photo/beautiful-african-woman-monochrome-portrait_23-2151436266.jpg?t=st=1721357513~exp=1721361113~hmac=1c3427b6591eb898f2ac714b9b5ef8a7a3903423a9f22147d3d4d3158a18307c&w=360');
+    }
+
+    .b {
+        background-image: url('https://img.freepik.com/premium-photo/woman-blue-outfit-hat-stands-front-blue-sky_727939-2957.jpg?w=360');
+    }
+
+    .c {
+        background-image: url('https://img.freepik.com/premium-photo/portrait-person-fashion-design-backdrop_970765-2252.jpg?w=740');
+    }
+
+    .d {
+        background-image: url('https://img.freepik.com/premium-photo/young-cool-beautiful-girls-fashionable-denim-clothes-with-leather-jacket-shoes-posing-parking-lot-city_338491-10966.jpg?w=360');
+    }
+
+    .e {
+        background-image: url('https://img.freepik.com/free-photo/stylish-african-american-man-model-gray-coat-jacket-tie-red-hat-against-black-suv-car-black-white-photo_627829-12653.jpg?t=st=1721358336~exp=1721361936~hmac=5f6786bdfe5e6ca2d5afe5897899cd833a0247c79aa6c58f95d34244ad6dce52&w=740');
+    }
+
+    .f {
+        background-image: url('https://img.freepik.com/free-photo/african-american-man_1303-3987.jpg?t=st=1721379735~exp=1721383335~hmac=d170b5e228cc014ad6efa991bb566811d76c01be742b20639caed6e2e9b73398&w=740');
+    }
+
+    .image h2 {
+        color: #fff;
+        font-size: 60px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-family: "Black Ops One", system-ui;
+    }
+
+    .image p {
+        font-size: 24px;
+        color: gainsboro;
+        font-weight: 600;
+        font-variant: small-caps;
+        letter-spacing: 1px;
+        font-family: 'Courier New', Courier, monospace;
+        text-align: center;
+        padding: 1em;
+
+    }
+
+
+    main {
+        position: fixed;
+        top: 1em;
+        left: 1em;
+        z-index: 10000;
+        font-family: "Playwrite HR Lijeva", cursive;
+    }
+
+    .random {
+        width: 100vw;
+        height: fit-content;
+        background: none;
+        position: relative;
+    }
+
+    .ri-a {
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .r-image {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        aspect-ratio: 1;
+        border-radius: .4em;
+        object-fit: cover;
+    }
+
+    .i-a {
+        top: 10%;
+        left: 5%;
+    }
+
+    .i-b {
+        top: 17%;
+        right: 9%;
+    }
+
+    .i-c {
+        top: 38%;
+        left: 20%;
+    }
+
+    .i-d {
+        top: 65%;
+        left: 5%;
+    }
+
+    .i-e {
+        bottom: 0%;
+        right: 33%;
+    }
+
+    .i-f {
+        bottom: 30%;
+        right: 5%;
+    }
+
+    .i-g {
+        top: 2%;
+        left: 34%;
+    }
+
+    .i-h {
+        bottom: 5%;
+        right: 4%;
+    }
+
+    .random h1 {
+        position: absolute;
+        z-index: 59989398;
+        bottom: 0;
+        text-align: center;
+        font-size: xxx-large;
+        font-family: "Black Ops One", system-ui;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    mark {
+        border-radius: .5em 1em;
+        padding: .1em .3em;
+        background: gainsboro;
+    }
+
+    @media screen and (min-width:760px) {
+        .image h2 {
+            color: #fff;
+            font-size: 100px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .r-image {
+            width: 200px;
+            height: 200px;
+        }
+
+        .i-f {
+            bottom: 30%;
+            right: 30%;
+        }
+
+        .i-e {
+            bottom: -6%;
+            right: 45%;
+        }
+    }
+</style>
+
+<body>
+
+    <main>
+        <a href="/">
+            <h2 style="text-shadow: 1px 1px seashell;">Fixie</h2>
+        </a>
+    </main>
+
+
+    <div class="overlay">
+        <div class="swipe up"></div>
+        <div class="swipe down"></div>
+        <div class="swipe up"></div>
+        <div class="swipe down"></div>
+        <div class="swipe up"></div>
+        <div class="swipe down"></div>
+        <div class="swipe up"></div>
+        <div class="swipe down"></div>
+
+        <h1 class="counter">0</h1>
+    </div>
+
+
+
+    <section class="hero">
+        <div class="image a">
+            <h2>GORGEOUS</h2>
+            <p>The joy of dressing is an art. - ...</p>
+        </div>
+
+        <div class="image b">
+            <h2>ATTRACTIVE</h2>
+            <p>Fashion is what you buy, style is what you do with it. - ...</p>
+        </div>
+
+        <div class="image c">
+            <h2>BEAUTIFUL</h2>
+            <p>Stress doesn't really go with my outfit. - ...</p>
+        </div>
+
+        <div class="image d">
+            <h2>Stunning</h2>
+            <p>You can have anything you want in life if you dress for it.</p>
+        </div>
+
+        <div class="image e">
+            <h2>GLAMOROUS</h2>
+            <p>"In difficult times, fashion is always outrageous."</p>
+        </div>
+
+        <div class="image f">
+            <h2>PERFECT</h2>
+            <p>"Elegance is elimination." </p>
+        </div>
+    </section>
+
+
+    <section class="random">
+        <div class="ri-a">
+
+            <img class="r-image i-a"
+                src="https://img.freepik.com/free-photo/woman-posing-arid-environment-while-wearing-native-african-clothing_23-2150609680.jpg?t=st=1721360809~exp=1721364409~hmac=1d2804cb6c7208b6d44b8d68f81e66319eab23c05ab3de91a825bb827fc1758d&w=360"
+                alt="">
+
+            <img class="r-image i-b"
+                src="https://img.freepik.com/premium-photo/fashion-editorial-illustration_257123-14856.jpg?w=740"
+                alt="">
+
+            <img class="r-image i-c"
+                src="https://img.freepik.com/free-photo/beautiful-african-american-woman-natural-makeup-wear-fashion-clothes-casual-black-white-dress-code-office-style-total-blouse-pants-suit-hat_627829-1552.jpg?t=st=1721371073~exp=1721374673~hmac=7caa3eba7fa882fd836d518c27529c73542b5db6f9bfbf4070fdbb0ddef41c91&w=740"
+                alt="">
+
+            <img class="r-image i-d"
+                src="https://img.freepik.com/free-photo/two-african-dressmaker-woman-designed-new-red-dress-mannequin-tailor-office-black-seamstress-girls_627829-4465.jpg?t=st=1721371092~exp=1721374692~hmac=6d5ccd921a560a1e030312b6ee1e5850ba0277a6f69b9112309f2e454e722961&w=740"
+                alt="">
+
+            <img class="r-image i-e"
+                src="https://img.freepik.com/premium-photo/fashion-model-black-woman-studio-creative-clothes-posing-power-suit-red-background-fashion-model-girl-elegant-clothing-by-designer-with-vision-classic-sexy-aesthetic_590464-117789.jpg?w=360"
+                alt="">
+
+            <img class="r-image i-f"
+                src="https://img.freepik.com/premium-photo/two-women-dresses-hats-sitting-each-other_961829-18610.jpg?w=740"
+                alt="">
+
+            <img class="r-image i-g"
+                src="https://img.freepik.com/free-photo/handsome-man-with-hat-looking-away_23-2148448878.jpg?t=st=1721371163~exp=1721374763~hmac=08aaa07f410b5fa36ee34e0331f4fa0c0a6dd411c4cd769709d9ca9e13407d06&w=360"
+                alt="">
+
+            <img class="r-image i-h"
+                src="https://img.freepik.com/free-photo/medium-shot-boy-posing-with-monochrome-outfit_23-2151044501.jpg?t=st=1721372164~exp=1721375764~hmac=90d8d63a67206ff723c798e570664d689867cc0a4b8e0641ca7e11ab24681ce0&w=360"
+                alt="" srcset="">
+        </div>
+        <h1>ART CULT<mark>URE</mark></h1>
+    </section>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger)
+        var counter = 0
+        function ControlTimer() {
+
+            setInterval(() => {
+                counter += 1
+                if (counter > 100) {
+                    document.querySelector(".counter").style.display = "none"
+                }
+                if (counter <= 100 && counter > 0) {
+                    document.querySelector(".counter").textContent = counter + " ..."
+                }
+
+            }, 7)
+
+        }
+
+
+        ControlTimer()
+
+        gsap.to(".up", .5, {
+            delay: .5,
+            width: 0,
+            x: -600,
+            stagger: {
+                amount: 0.5,
+            },
+            ease: "power4.inOut"
+        })
+
+
+        gsap.to(".down", 1.5, {
+            delay: .5,
+            height: 0,
+            y: -580,
+            stagger: {
+                amount: 0.5,
+            },
+            ease: "power4.inOut"
+        })
+
+
+        // gsap.to(".image",5,{
+        //   x:-window.innerWidth,
+        //   srollTrigger:{
+        //     trigger:".hero",
+        //     pin:true,
+        //     start:"center center",
+        //     scrub:true
+        //   }
+        // })
+
+        const t1 = gsap.timeline()
+        t1.to(".image", 2, {
+            x: -window.innerWidth
+        })
+            .from(".b h2", 2, { opacity: 0, scale: 3 })
+            .from(".b p", 2, { opacity: 0, scale: 0, })
+            .to(".b h2", 2, { opacity: 1, scale: 1, color: "steelblue" })
+            .to(".image", 2, { x: -window.innerWidth * 2 })
+            .from(".c h2", 2, { opacity: 0, scale: 3 })
+            .from(".c p", 2, { opacity: 0, scale: 0 })
+            .to(".image", 2, { x: -window.innerWidth * 3 })
+            .from(".d h2", 2, { opacity: 0, scale: 3 })
+            .from(".d p", 2, { opacity: 0, scale: 0 })
+            .to(".image", 2, { x: -window.innerWidth * 4 })
+            .from(".e h2", 2, { opacity: 0, scale: 3 })
+            .from(".e p", 2, { opacity: 0, scale: 0 })
+            .to(".image", 2, { x: -window.innerWidth * 5 })
+            .from(".f h2", 2, { opacity: 0, scale: 3, })
+            .to(".f h2", 2, { opacity: 1, scale: 1, color: "red" })
+            .from(".f p", 2, { opacity: 0, scale: 0 })
+
+        ScrollTrigger.create({
+            animation: t1,
+            trigger: ".hero",
+            start: "center center",
+            end: "+=4500",
+            pin: true,
+            scrub: true
+        })
+
+        const rPics = gsap.utils.toArray(".r-image")
+        const random = gsap.utils.toArray(".random")
+
+        gsap.to(rPics, 5, {
+            y: -100,
+            scrollTrigger: {
+                trigger: random,
+                pin: true,
+                scrub: true,
+                start: "top top",
+                end: "+=2500"
+            }
+        })
+
+        // gsap.to('h1', 5, {
+        //     x:100,
+        //     scrollTrigger: {
+        //         trigger: ".random",
+        //         pin: true,
+        //         scrub: true,
+        //         start: "top top",
+        //         end: "+=10"
+        //     }
+        // })
+
+    </script>
+</body>
+
+</html>

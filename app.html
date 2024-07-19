@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowurcrafts Effect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Playwrite+HR:wght@100..400&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+
+    html,
+    body {
+        overflow: scroll;
+        width: 100vw;
+
+    }
+
+    nav {
+        position: fixed;
+        top: 0px;
+        width: 100vw;
+        padding: 1.5em 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 2000;
+        background: rgba(0, 0, 0, .89);
+    }
+
+    .head {
+        font-size: large;
+        font-weight: bolder;
+        font-family: "Playwrite CU", cursive;
+        font-optical-sizing: auto;
+        font-weight: bolder;
+        font-style: normal;
+        color: #fff;
+    }
+
+    .head a {
+        color: #fff;
+    }
+
+    .head span {
+        color: #999;
+        font-style: italic;
+    }
+
+    .menu {
+        color: #fff;
+        font-size: large;
+        font-style: oblique;
+        font-weight: bolder;
+        width: 1.6em;
+        height: 1.6em;
+        border: 2px solid indigo;
+        border-radius: .6rem;
+        display: grid;
+        padding: .8em;
+        place-content: center;
+        rotate: 20deg;
+    }
+
+    .menu:hover .menu svg {
+        transition: 1s;
+        scale: 1.4;
+        display: block;
+    }
+
+    .none {
+        display: none;
+        scale: 0;
+        transition: 1s;
+    }
+
+    .header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 3em .5em 1em;
+    }
+
+    .header .text {
+        position: relative;
+        font-size: 12vw;
+        line-height: ;
+        font-family: "Playwrite HR", cursive;
+        font-optical-sizing: auto;
+        font-weight: bolder;
+        font-style: normal;
+
+    }
+
+    .hero {
+        width: calc(100vw - 4em);
+        height: 100%;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .overlay {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 2000000;
+        display: flex;
+    }
+
+    .bar {
+        width: 15.35vw;
+        height: 105vh;
+        background: #1a1a1a;
+    }
+
+    .counter {
+        position: fixed;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        z-index: 10;
+        color: #fff;
+        padding: 2em;
+        font-size: xx-large;
+        font-family: "Shadows Into Light", cursive;
+        font-weight: 400;
+        font-style: normal;
+        z-index: 60000000;
+
+    }
+</style>
+
+<body>
+
+    <h1 class="counter">0</h1>
+    <!-- LOADER -->
+    <div class="overlay">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+
+    </div>
+
+
+    <div class="container">
+        <nav>
+            <main class="head">
+                <a href="">
+                    <p>Fash<span>ION</span></p>
+                </a>
+            </main>
+
+            <div class="menu">
+
+                <svg style="rotate: -20deg;" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                    fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                </svg>
+
+            </div>
+        </nav>
+
+
+        <div class="header">
+            <h1 class="text">F</h1>
+            <h1 class="text">A</h1>
+            <h1 class="text">S</h1>
+            <h1 class="text">H</h1>
+            <h1 class="text">I</h1>
+            <h1 class="text">O</h1>
+            <h1 class="text">N</h1>
+            <h1 class="text"></h1>
+            <h1 class="text"></h1>
+            <h1 class="text"></h1>
+            <h1 class="text"></h1>
+        </div>
+
+
+        <div class="hero">
+            <img src="https://img.freepik.com/premium-photo/portrait-person-fashion-design-backdrop_970765-2252.jpg?w=740"
+                alt="" srcset="">
+        </div>
+
+    </div>
+
+
+    <section style="height: 300vh;width: 100vw;background: indigo;">
+
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script>
+        const menu = document.querySelector(".menu")
+        const cancelIcon = document.querySelector(".menu svg")
+
+        window.addEventListener("load", FactorySetting)
+
+        function FactorySetting() {
+
+            cancelIcon.classList.add("none")
+        }
+
+        menu.onclick = () => {
+            cancelIcon.classList.toggle("none")
+
+        }
+
+        function Starter() {
+            let counterEl = document.querySelector(".counter")
+            let curentVal = 0
+
+            function updateCounter() {
+
+                if (curentVal === 100) {
+                    return
+                }
+
+                curentVal += Math.floor(Math.random() * 10) + 1
+
+                if (curentVal > 100) {
+                    curentVal = 100
+                }
+
+                counterEl.textContent = curentVal
+                let delay = Math.floor(Math.random() * 100)
+
+                setTimeout(updateCounter, 50)
+
+            }
+            updateCounter()
+        }
+
+        Starter()
+
+        gsap.to(".counter", 1.8, {
+            delay: 2.5,
+            opacity: 0,
+        })
+
+        gsap.to(".bar", 2.5, {
+            delay: 1,
+            height: 0,
+            stagger: {
+                amount: 0.5,
+            },
+            ease: "power4.inOut"
+        })
+
+        gsap.to(".text", 1.5, {
+            delay: 2.5,
+            x: 70,
+            y: 30,
+            stagger: {
+                amount: 0.5,
+            },
+            ease: "power4.inOut"
+        })
+
+
+        gsap.to(".hero", 1.5, {
+            delay: 2.5,
+            x: -70,
+            y: 30,
+            stagger: {
+                amount: 0.5,
+            },
+            ease: "power4.inOut"
+        })
+
+    </script>
+</body>
+
+</html>

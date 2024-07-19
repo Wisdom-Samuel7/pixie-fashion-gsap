@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowurCraft Site</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS -->
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        scrollbar-width: none;
+    }
+
+    html::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    body {
+        background: lightcoral;
+
+    }
+
+    .box {
+        width: 300px;
+        height: 350px;
+        padding: 1em;
+    }
+
+    .a {
+        background: #000;
+        border-radius: 5%;
+    }
+
+    .boxImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    nav {
+        width: 100%;
+        padding: 1em 2em;
+        position: fixed;
+        display: flex;
+        z-index: 1400;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0, 0, 0, .1);
+    }
+
+    nav h1 {
+        font-family: "Playwrite HR Lijeva", cursive;
+        font-optical-sizing: auto;
+        font-weight: bolder;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .overlay {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 200;
+        display: flex;
+
+    }
+
+    .swipe {
+        background: black;
+        flex: 1;
+        height: 100%;
+    }
+
+    .counter {
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+        font-size: xxx-large;
+        font-family: "Black Ops One", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        color: #fff;
+    }
+
+    .hero {
+        height: 100vh;
+        width: 100%;
+        background: lightcoral;
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+        justify-content: center;
+        align-items: center;
+        overflow: scroll;
+    }
+
+    .wrt {
+        transform: translateY(8em);
+        font-family: "Black Ops One", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        font-size: xxx-large;
+        z-index: 1000;
+        scale: .88;
+        color: #fff;
+    }
+
+    mark {
+        padding: .2em .3em;
+        border-top-right-radius: .6em;
+        border-bottom-left-radius: .6em;
+    }
+
+    .next {
+        height: 100vh;
+        width: 100vw;
+        background: greenyellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .3em 1em;
+        gap: 1rem;
+    }
+
+    .next p {
+        text-align: left;
+        font-weight: bolder;
+        font-family: "Black Ops One", system-ui;
+        color: #234;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        font-size: x-large;
+        flex: .5;
+        padding: .1em 1em;
+        width: 480px;
+
+    }
+
+    .sec-image {
+        flex: .5;
+        background: greenyellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+        width: 100vw;
+    }
+
+
+    .b {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-fit: cover;
+        border-radius: 10%;
+    }
+
+    .gallery {
+        width: 100%;
+        height: fit-content;
+        background: #000;
+        position: relative;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        overflow: auto;
+
+    }
+
+
+    .gallery-slide {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background: #fff;
+        /* flex: 1; */
+    }
+
+    .gallery h1 {
+        color: #234;
+        font-size: xx-large;
+        text-orientation: sideways-right;
+        writing-mode: vertical-rl;
+        align-items: self-end;
+        margin: auto 2em;
+        font-family: "Playwrite HR Lijeva", cursive;
+        font-optical-sizing: auto;
+        font-weight: bolder;
+        z-index: 200;
+        word-spacing: 1em;
+    }
+
+    .gallery h2 {
+        color: gainsboro;
+        text-align: center;
+        text-orientation: sideways-right;
+        writing-mode: vertical-rl;
+        transform: translate(-100px, 100px);
+        opacity: 1;
+        letter-spacing: .4em;
+        font-family: "Black Ops One", system-ui;
+        font-size: xx-large;
+    }
+
+    .line {
+        width: 100vw;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 1em;
+        z-index: 1;
+        background: greenyellow;
+    }
+
+
+    .thd {
+        width: 100vw;
+        height: fit-content;
+        background: dodgerblue;
+        overflow: auto;
+        padding-bottom: 2em;
+        scroll-snap-type: none;
+        scroll-timeline: none;
+        scrollbar-color: none;
+        z-index: 50000000;
+    }
+
+    .form {
+        width: 100vw;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+
+    form input {
+        width: 320px;
+        border: none;
+        border-radius: 10px;
+        padding: 1.5em 1em;
+        font-weight: 500;
+        background: #fff;
+    }
+
+    input[type="submit"] {
+        color: #fff;
+        font-weight: bolder;
+        background: #246;
+    }
+
+    .menu {
+        z-index: 1345687809898;
+    }
+
+    .menu-bar {
+        width: 100vw;
+        height: 100vh;
+        background: #000;
+        position: fixed;
+        z-index: 3000000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+
+    }
+
+    .menu-bar a {
+        color: gainsboro;
+        font-size: 50px;
+        font-family: "Black Ops One", system-ui;
+        position: relative;
+        transition: 1s;
+    }
+
+    .menu-bar div a:hover {
+        color: chartreuse;
+        transition: width ease-in;
+    }
+
+    .menu-bar a:nth-child(1) {
+        animation: slide 1s normal ease-in-out;
+    }
+
+    @keyframes slide {
+        from {
+            transform: translateX(-2em);
+        }
+
+        to {
+            transform: translateX(0em);
+        }
+    }
+
+    .menu-bar div a:hover::before {
+        content: "";
+        width: 60px;
+        height: 2px;
+        background: #ffb;
+        position: absolute;
+        bottom: -5%;
+        left: 5%;
+    }
+
+    .hide-menu {
+        display: none;
+    }
+
+    .show {
+        display: flex;
+    }
+
+    .comment {
+        width: 100vw;
+        height: 40vh;
+        padding: 1em;
+        display: flex;
+        overflow: auto;
+        gap: 10px;
+    }
+
+    .people {
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        height: fit-content;
+        align-items: center;
+        background-color: #fff;
+        flex-direction: column;
+        padding: .5em;
+        border-radius: .7em;
+    }
+
+    .people h3 {
+        font-family: "Playwrite HR Lijeva", cursive;
+    }
+
+    .people p {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        align-items: center;
+        text-align: center;
+        padding: .5em;
+        background: dodgerblue;
+        border-radius: .5em;
+        color: #000;
+    }
+
+    .people img {
+        width: 50%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    @media screen and (min-width:760px) {
+        .next {
+            flex-direction: column;
+        }
+
+        .links {
+            display: flex;
+            gap: 1.5em;
+
+        }
+
+        .links a {
+            color: #fff;
+            font-family: "Tajawal", sans-serif;
+            font-weight: bolder;
+            font-size: larger;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .comment {
+            width: 100vw;
+            height: 40vh;
+            padding: 1em;
+            display: grid;
+            gap: 20px;
+            place-items: center;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        }
+    }
+
+    footer {
+        width: 100vw;
+        height: 30vh;
+        background: #fff;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        place-items: center;
+     
+    }
+
+    .foot-a {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 1em;
+        z-index: 4000;
+    }
+
+    .foot-a a {
+        color: #000;
+        font-weight: bold;
+        font-style: normal;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .foot-b {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 1em;
+        z-index: 4000;
+    }
+
+    .foot-b a {
+        color: #000;
+        font-weight: bold;
+        font-style: normal;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .socials {
+        display: grid;
+        margin-top: 2em;
+        grid-template-columns: 1fr 1fr;
+        gap: 1em;
+        z-index: 4000;
+    }
+</style>
+
+<body>
+
+    <!-- OVER LAY -->
+
+    <div class="overlay">
+        <div class="swipe up"></div>
+        <div class="swipe down"></div>
+        <div class="swipe up"></div>
+        <div class="swipe down"></div>
+
+        <div class="swipe up"></div>
+        <div class="swipe down"></div>
+        <div class="swipe up"></div>
+        <div class="swipe down"></div>
+
+        <h1 class="counter">0</h1>
+    </div>
+
+    <!-- Nav BAR -->
+
+    <nav>
+        <h1 style="text-shadow: 1px 1px #fff;">Fixie</h1>
+
+        <div class="links">
+            <a href="/">Home </a>
+            <a href="/about">About</a>
+            <a href="/gallery">Gallery</a>
+        </div>
+
+        <div class="menu ">
+            <svg style="z-index: 300000000;" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg>
+        </div>
+    </nav>
+
+
+    <!-- MENU BAR  -->
+
+    <div class="menu-bar hide-menu">
+
+        <div class="close-menu" style="position: absolute;top: 10px;left: 20px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="greenyellow" class="bi bi-x-lg"
+                viewBox="0 0 16 16">
+                <path
+                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+            </svg>
+        </div>
+
+        <div><a href="">HOME</a></div>
+        <div><a href="/about">ABOUT</a></div>
+        <!-- <div><a href="">SHOP</a></div> -->
+        <div><a href="/gallery">GALLERY</a></div>
+
+    </div>
+
+    <!-- MAIN PAGE -->
+
+    <section class="hero">
+
+        <h1 class="wrt">MINIMAL <mark>OUTLOOK</mark></h1>
+
+        <div class="box a">
+            <img class="boxImg"
+                src="https://img.freepik.com/free-photo/still-life-say-no-fast-fashion_23-2149669605.jpg?t=st=1721254719~exp=1721258319~hmac=4564174a422a899fd5eeaec35370bb4a2c8dbb1c6bef7e10ea63cf716ddda1e7&w=740"
+                alt="" srcset="">
+        </div>
+
+
+    </section>
+
+
+    <section class="next">
+        <p>Easy-peasy guide to refreshing your wardrobe (without having to declutter),to be fashionable in a bold way
+        </p>
+
+        <div class="sec-image">
+            <img class="b"
+                src="https://img.freepik.com/premium-psd/editable-realistic-hoodie-mockup-design_556004-613.jpg?w=900"
+                alt="">
+        </div>
+    </section>
+
+
+    <section class="gallery">
+
+        <main class="gallery-slide">
+            <h1 data-aos="flip-right">FASHION SPEAKS</h1>
+            <div class="line"></div>
+
+            <div>
+                <img src="https://img.freepik.com/free-photo/beautiful-wedding-bridal-dresses-mannequin-showroom-mall_169016-38605.jpg?t=st=1721286781~exp=1721290381~hmac=b1113d3b1b1cd683cbe894b7d00601a13e6f5eb8141d7d32b3052797e56698fa&w=360"
+                    alt="" srcset="">
+            </div>
+
+        </main>
+
+
+        <h2 id="subscribe">
+            CONTACT US
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1" />
+            </svg>
+        </h2>
+
+        <!--
+        <main class="gallery-slide">
+            <h1>FASHION SPEAKS</h1>
+            <div class="line"></div>
+        </main>
+
+
+        <main class="gallery-slide">
+            <h1>FASHION SPEAKS</h1>
+            <div class="line"></div>
+        </main>
+
+
+        <main class="gallery-slide">
+            <h1>FASHION SPEAKS</h1>
+            <div class="line"></div>
+        </main> -->
+
+    </section>
+
+
+
+    <section class="thd">
+
+        <div class="form" >
+            <form data-aos="zoom-in" action="/" method="post">
+                <h1 style="color: #234;font-family: sans-serif monospace;letter-spacing: .5em;">Subscribe</h1>
+                <input class="r-input" type="text" autocomplete="true" name="name" placeholder="Name">
+                <input class="l-input" type="email" autocomplete="true" name="email" placeholder="Email">
+                
+                <div><%= message %></div>
+                
+                <input class="s-input" type="submit" value="Done">
+            
+            </form>
+        </div>
+
+        <div class="comment">
+
+            <div class="people">
+                <div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 4em;">
+                    <img src="https://img.freepik.com/free-photo/acoustic-guitar-musical-keys-white-background-flat-lay_169016-16405.jpg?t=st=1721399844~exp=1721403444~hmac=d1b12bbe1d791e1e4e826713c88eca2eb6160bff9026ca7aab677b0d777339f8&w=360"
+                        alt="">
+                </div>
+                <h3>KnowurCraft</h3>
+                <p>Learn to play musical instrument,basic to advanced concept</p>
+            </div>
+
+
+
+            <div class="people">
+                <div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 4em;">
+                    <img src="https://img.freepik.com/free-photo/software-application-programming-developer-technology-concept_53876-120917.jpg?t=st=1721399891~exp=1721403491~hmac=a58026b25cadda35d9d4b7b0b408b347262956651e7217466486ee89b02330d9&w=740"
+                        alt="">
+                </div>
+                <h3>KnowurCraft</h3>
+                <p>Learn Full Stck Development,covering front-end , backend,database concept </p>
+            </div>
+
+
+            <div class="people">
+                <div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 4em;">
+                    <img src="https://img.freepik.com/free-photo/blackboard-inscribed-with-scientific-formulas-calculations_1150-19413.jpg?t=st=1721399700~exp=1721403300~hmac=9ab55439f84a13f499e0c2a659cde5654cfd31f8e27119553c507d67992ee0ed&w=740"
+                        alt="">
+                </div>
+                <h3>KnowurCraft</h3>
+                <p> Troubled with Math/Sciences ? .Subscribe and request for a class</p>
+            </div>
+
+
+
+            <div class="people">
+                <div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 4em;">
+                    <img src="https://img.freepik.com/free-photo/beginner-singer-trying-play-acoustic-guitar-using-online-tutorials_482257-83403.jpg?t=st=1721399994~exp=1721403594~hmac=f0dd7f17c678743731e296ff7d23521f011fdb46bc687a14bc76acc6fbfae03f&w=740"
+                        alt="">
+                </div>
+                <h3>KnowurCraft</h3>
+                <p>Become a music producer ,with advanced tools such as FL,LOGIC ,etc</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <div class="foot-a">
+            <a href="/about">About</a>
+            <a href="#subscribe">Contact</a>
+            <a href="/gallery">Gallery</a>
+
+        </div>
+
+        <div class="foot-b">
+            <a href="">Support</a>
+            <a href="">Idea</a>
+            <a href="mailto:knowurcrafts@gmail.com">Contact Developer</a>
+        </div>
+
+        <div class="socials">
+            <!-- <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="navy" class="bi bi-facebook"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                </svg>
+            </a>
+
+            <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="pink" class="bi bi-instagram"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                </svg>
+            </a> -->
+
+            <a href="https://www.linkedin.com/in/knowurcraft-wisdom-samuel-775832239/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="blue" class="bi bi-linkedin"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                </svg>
+            </a>
+
+            <a href="https://wa.me/+2349043510600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="green" class="bi bi-whatsapp"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+
+    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+        integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script>
+        AOS.init({
+            duration: 2500, // values from 0 to 3000, with step 50ms
+            easing: 'ease', // default easing for AOS animations
+            once: false,
+            delay: 300,
+        });
+
+        gsap.registerPlugin(ScrollTrigger)
+
+        gsap.to(".a", {
+            x: 150,
+            y: 0,
+            opacity: 0,
+            rotate: "90deg",
+            duration: 60,
+            scrollTrigger: {
+                trigger: ".a",
+                start: "top 30%",
+                end: "top -100%",
+                pin: true,
+                // markers:true,
+                scrub: 1,
+            }
+        })
+
+        gsap.to(".wrt", {
+            y: 117,
+            x: 30,
+            opacity: 0,
+            scale: 1.1,
+            duration: 50,
+            scrollTrigger: {
+                trigger: ".wrt",
+                start: "top 30%",
+                pin: true,
+                end: "bottom -160%",
+                // markers:true,
+                scrub: 1
+            }
+        })
+
+        gsap.to(".next", 1, {
+            scale: 0,
+            duration: 30,
+            rotate: "0deg",
+            borderRadius: "100%",
+            scrollTrigger: {
+                trigger: ".next",
+                start: "top -5%",
+                pin: true,
+                scrub: 1
+            }
+        })
+
+        var counter = 0
+        function ControlTimer() {
+
+            setInterval(() => {
+                counter += 1
+                if (counter > 100) {
+                    document.querySelector(".counter").style.display = "none"
+                }
+                if (counter <= 100 && counter > 0) {
+                    document.querySelector(".counter").textContent = counter + " ..."
+                }
+
+            }, 5)
+
+        }
+
+        ControlTimer()
+
+        gsap.to(".up", 1.5, {
+            delay: .4,
+            height: 0,
+            stagger: {
+                amount: 0.5,
+            },
+            ease: "power4.inOut"
+        })
+
+
+        gsap.to(".down", 1.5, {
+            delay: .4,
+            height: 0,
+            y: 600,
+            stagger: {
+                amount: 0.5,
+            },
+            ease: "power4.inOut"
+        })
+
+        const main = gsap.utils.toArray(".gallery-slide")
+
+        let scrollTween = gsap.to(main, {
+            xPercent: -30 * (main.length - 1),
+            opacity: 0,
+            duration: 30,
+            scrollTrigger: {
+                trigger: 'main',
+                pin: true,
+                scrub: 0.5,
+                start: "top top",
+                end: 3000
+            }
+        })
+
+        //const input = gsap.utils.toArray(".r-input")
+
+        gsap.to('.r-input', {
+            x: -60,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.thd',
+                pin: true,
+                scrub: 0.5,
+                start: "top -18%",
+                end: 3000,
+                ease: "power4.inOut",
+            }
+        })
+
+        gsap.to('.l-input', {
+            x: 60,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.thd',
+                start: "top -18%",
+                end: 3000,
+                scrub: 0.5,
+                ease: "power4.inOut",
+            }
+        })
+
+
+        gsap.to('.s-input', {
+            scale: 0,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.thd',
+                start: "top -18%",
+                end: 3000,
+                scrub: 0.5,
+                ease: "power4.inOut",
+            }
+        })
+
+
+        // Menu Control
+        const menu = document.querySelector(".menu")
+        menu.addEventListener("click", () => {
+            document.querySelector(".menu-bar").classList.remove("hide-menu")
+        })
+
+        const closeMenu = document.querySelector(".close-menu")
+        closeMenu.addEventListener("click", () => {
+            document.querySelector(".menu-bar").classList.add("hide-menu")
+        })
+
+        // gsap.to(".thd",{
+        //       scrollLeft:100,
+        //     scrollTrigger:{
+        //         trigger:".comment",
+        //         start:"top top",
+        //         end:3000,
+        //         pin:true,
+        //     }
+        // })
+
+    </script>
+</body>
+
+</html>
